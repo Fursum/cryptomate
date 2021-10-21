@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import styles from "./sideNav.module.css";
 import { useRouter } from "next/dist/client/router";
+import SearchBar from "@components/search";
 
 const SideNav: FunctionComponent = () => {
   const router = useRouter();
@@ -10,6 +11,7 @@ const SideNav: FunctionComponent = () => {
   return (
     <nav className={styles.outerNav}>
       <ul>
+        <SearchBar/>
         <Link href={"/dashboard"}>
           <a
             className={

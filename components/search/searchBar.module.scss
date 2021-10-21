@@ -1,0 +1,33 @@
+.searchInput {
+  > form {
+    > input {
+      border: 0;
+      background-color: var(--black);
+      color: var(--white);
+      font-size: large;
+      width: 8em;
+      border-radius: 2em;
+      padding-inline: 0.5em;
+      padding-block: 0.25em;
+
+      &::placeholder {
+        text-align: center;
+        color: var(--gray);
+      }
+
+      &:focus-visible{
+        outline: var(--main) solid 0.2em;
+      }
+    }
+  }
+
+  .hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
