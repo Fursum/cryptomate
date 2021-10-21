@@ -1,0 +1,44 @@
+@keyframes SelectionAppear {
+  0% {
+    opacity: 0.5;
+    transform: scale(30%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+.outerNav {
+  position: sticky;
+  top: 0;
+  height: 100%;
+}
+.outerNav > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  color: var(--white);
+  font-weight: bolder;
+  font-size: large;
+  text-align: center;
+}
+.outerNav > ul > a {
+  padding-inline: 1.5em;
+  padding-block: 0.5em;
+}
+.outerNav > ul .active {
+  position: relative;
+  color: var(--black);
+}
+.outerNav > ul .active::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: var(--white);
+  border-radius: 0.5em;
+  transform-origin: center;
+  z-index: -5;
+  animation: SelectionAppear 0.15s cubic-bezier(0, 0.08, 0, 1.22);
+}
+
+/*# sourceMappingURL=sideNav.module.css.map */

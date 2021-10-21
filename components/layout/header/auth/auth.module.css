@@ -1,0 +1,31 @@
+.authButton {
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+  font-size: large;
+  padding-block: 0.5em;
+  padding-inline: 1em;
+  border-radius: 0.5rem;
+}
+
+.signIn {
+  margin-left: auto;
+  margin-right: 0.5em;
+}
+.signIn > a {
+  background-color: var(--main);
+  color: var(--black);
+}
+.signIn :hover {
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.2);
+}
+
+.signOut > a {
+  background-color: #850000;
+  color: var(--white);
+}
+.signOut :hover {
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.2);
+}
+
+/*# sourceMappingURL=auth.module.css.map */

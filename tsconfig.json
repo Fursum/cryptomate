@@ -10,6 +10,12 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@localization": ["localization/index"],
+      "@public/*": ["public/*"]
+    },
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
