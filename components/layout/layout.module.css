@@ -2,5 +2,8 @@
   display: flex;
   width: 100%;
 }
+.mainWrapper > main {
+  width: 100%;
+}
 
 /*# sourceMappingURL=layout.module.css.map */

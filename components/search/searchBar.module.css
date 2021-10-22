@@ -1,3 +1,12 @@
+.searchInput {
+  margin-left: auto;
+  margin-right: 1em;
+}
+.searchInput > form {
+  position: relative;
+  display: flex;
+  flex-grow: 0;
+}
 .searchInput > form > input {
   border: 0;
   background-color: var(--black);
@@ -9,11 +18,23 @@
   padding-block: 0.25em;
 }
 .searchInput > form > input::placeholder {
-  text-align: center;
+  text-align: left;
   color: var(--gray);
 }
 .searchInput > form > input:focus-visible {
   outline: var(--main) solid 0.2em;
+}
+.searchInput > form::before {
+  content: "";
+  background-image: url("/svg/raw/magnify.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 1em;
+  right: 0;
+  bottom: 0;
+  top: 50%;
+  transform: translate(15%, -60%);
 }
 .searchInput .hidden {
   clip: rect(0 0 0 0);

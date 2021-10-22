@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { FunctionComponent, useState } from "react";
-import styles from "./searchBar.module.css";
+import styles from "./searchBar.module.scss";
 
 const SearchBar: FunctionComponent = () => {
   const [value, setValue] = useState("");
@@ -8,7 +8,8 @@ const SearchBar: FunctionComponent = () => {
 
   const search = (event: any) => {
     event.preventDefault();
-    router.push(`/${value}`);
+    router.push(`/search/${value}`);
+    setValue("");
   };
 
   const handleChange = (event: { target: HTMLInputElement }) => {
@@ -23,6 +24,7 @@ const SearchBar: FunctionComponent = () => {
         </label>
         <input
           value={value}
+          maxLength={12}
           type="text"
           placeholder="Search"
           onChange={handleChange}

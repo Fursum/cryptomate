@@ -17,6 +17,8 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
+  padding-left: 0;
+  margin: 1em;
   color: var(--white);
   font-weight: bolder;
   font-size: large;

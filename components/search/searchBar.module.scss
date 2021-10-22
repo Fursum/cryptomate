@@ -1,5 +1,12 @@
 .searchInput {
+
+  margin-left: auto;
+  margin-right: 1em;
+
   > form {
+    position: relative;
+    display: flex;
+    flex-grow: 0;
     > input {
       border: 0;
       background-color: var(--black);
@@ -11,13 +18,28 @@
       padding-block: 0.25em;
 
       &::placeholder {
-        text-align: center;
+        text-align: left;
         color: var(--gray);
       }
 
-      &:focus-visible{
+      &:focus-visible {
         outline: var(--main) solid 0.2em;
       }
+    }
+
+    &::before {
+      content: "";
+      background-image: url("/svg/raw/magnify.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+
+      //Randomly found these values
+      width: 1em;
+      right: 0;
+      bottom: 0;
+      top: 50%;
+      transform: translate(15%, -60%);
     }
   }
 

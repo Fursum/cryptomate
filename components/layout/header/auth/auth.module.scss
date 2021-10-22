@@ -25,9 +25,14 @@
 }
 
 .signOut {
+
+  
+
   > a {
+    font-weight: bold;
     background-color: rgb(133, 0, 0);
     color: var(--white);
+    width: fit-content;
   }
 
   :hover {
