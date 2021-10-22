@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { FunctionComponent, useState } from "react";
-import styles from "./searchBar.module.scss";
+import styles from "./searchBar.module.css";
 
 const SearchBar: FunctionComponent = () => {
   const [value, setValue] = useState("");
