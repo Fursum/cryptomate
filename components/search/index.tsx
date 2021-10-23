@@ -8,7 +8,7 @@ const SearchBar: FunctionComponent = () => {
 
   const search = (event: any) => {
     event.preventDefault();
-    router.push(`/search/${value}`);
+    router.push(`/search/${value}/USDT`);
     setValue("");
   };
 

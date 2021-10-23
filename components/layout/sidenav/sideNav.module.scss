@@ -11,8 +11,7 @@
 
 .outerNav {
   position: sticky;
-  top:0;
-  height: 100%;
+  top: 0;
 
   > ul {
     display: flex;
@@ -45,7 +44,7 @@
         transform-origin: center;
         z-index: -5;
 
-        animation: SelectionAppear 0.15s cubic-bezier(0,.08,0,1.22);
+        animation: SelectionAppear 0.15s cubic-bezier(0, 0.08, 0, 1.22);
       }
     }
   }
