@@ -1,0 +1,43 @@
+.outerButton{
+
+  --symbolColor: var(--main);
+  --textColor: var(--white);
+
+  display: flex;
+  gap: 0.2em;
+  line-height: 40%;
+  padding-inline: 0.5em;
+
+  user-select: none;
+
+}
+
+.outerButton:hover{
+
+  cursor: pointer;
+  background-color: var(--main);
+  --symbolColor: var(--black);
+  --textColor: var(--black);
+  
+}
+
+.symbol{
+  font-size: large;
+  color: var(--symbolColor);
+}
+
+.name{
+  font-size: small;
+  color: var(--textColor);
+}
+
+.leftSide{
+  text-align: left;
+  flex-basis: 50%;
+  margin-right: 0.2em;
+}
+
+.rightSide{
+  text-align: right;
+  flex-basis: 50%;
+}

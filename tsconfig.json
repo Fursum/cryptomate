@@ -14,7 +14,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@localization": ["localization/index"],
-      "@public/*": ["public/*"]
+      "@public/*": ["public/*"],
+      "@libs/*": ["libs/*"]
     },
     "resolveJsonModule": true,
     "isolatedModules": true,

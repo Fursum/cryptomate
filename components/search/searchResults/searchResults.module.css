@@ -1,0 +1,29 @@
+
+.centerContainer{
+
+  display: flex;
+  justify-content: center;
+  width: 200%;
+  margin-left: -50%;
+
+}
+
+.resultsContainer{
+
+  display:flex;
+  flex-direction: column;
+  position:absolute;
+  
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+
+  text-align: center;
+
+  gap: 0.1em;
+  margin-top: 0.3em;
+  border-radius: 0.5em;
+  overflow: hidden;
+
+  transform-origin: center;
+
+}

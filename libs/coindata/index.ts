@@ -26,3 +26,5 @@ class CoinData {
 }
 
 export default new CoinData();
+export type {CoinData_T};
+export type {CoinData_Attributes};

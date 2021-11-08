@@ -1,19 +1,20 @@
-import CoinData from "@components/coindata";
+import CoinDisplay from "@components/coindisplay";
+import CoinData, { CoinData_T } from "@libs/coindata";
 import Binance, { AvgPriceResult } from "binance-api-node";
 import { NextPage, GetServerSideProps } from "next";
 
 interface Props {
-  data: AvgPriceResult;
-  name: string;
+  avgPrice: AvgPriceResult;
+  coinData: {
+    base: CoinData_T,
+    converted: CoinData_T
+  }
   error: Error;
 }
 
-const Search: NextPage<Props> = ({ data, name, error }) => {
+const Search: NextPage<Props> = ({ avgPrice, coinData, error }) => {
   const pageContent = (
-    <div>
-      Name: {name}
-      Data: {data.price}
-    </div>
+    <CoinDisplay metadata={coinData} price={avgPrice.price} />
   );
   const errorContent = <div>Error: {error}</div>;
 
@@ -29,16 +30,16 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const symbol = String(ctx.params?.searchParams?.[0]).toUpperCase();
   const convertTo = String(ctx.params?.searchParams?.[1]);
-  let data: AvgPriceResult | AvgPriceResult[] = {
+  let avgPrice: AvgPriceResult | AvgPriceResult[] = {
     mins: 0,
     price: "0",
   };
-  let err: Error | undefined = undefined;
+  let err: string = "";
 
   try {
     if (symbol)
-      data = await client.avgPrice({
-        symbol: symbol + convertTo,
+      avgPrice = await client.avgPrice({
+        symbol: (symbol + convertTo).toUpperCase(),
       });
   } catch (error: any) {
     err = error.message;
@@ -46,9 +47,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      name: coinData.getCoin(symbol, "name"),
-      data: data,
-      error: err ? err.message : "",
+      avgPrice: avgPrice,
+      coinData: {
+        base: coinData.getCoin(symbol),
+        converted: coinData.getCoin(convertTo),
+      },
+      error: err,
     },
   };
 };

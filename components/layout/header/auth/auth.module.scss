@@ -11,9 +11,7 @@
 }
 
 .signIn {
-  margin-left: auto;
   margin-right: 0.5em;
-
   > a {
     background-color: var(--main);
     color: var(--black);
@@ -25,9 +23,6 @@
 }
 
 .signOut {
-
-  
-
   > a {
     font-weight: bold;
     background-color: rgb(133, 0, 0);

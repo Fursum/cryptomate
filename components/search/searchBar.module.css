@@ -1,4 +1,5 @@
 .searchInput {
+  position: relative;
   margin-left: auto;
   margin-right: 1em;
 }

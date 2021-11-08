@@ -1,0 +1,26 @@
+.outerDisplay{
+
+  font-size: x-large;
+  color:var(--white);
+  background-color: var(--darkGray);
+
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  padding-inline: 1em;
+  padding-block: 0.5em;
+
+  border-radius: 0.5em;
+
+}
+
+.coinMetadata{
+  display: flex;
+  align-items: center;
+}
+
+.coinMetadata > span{
+
+  margin-inline: 0.5em;
+}
