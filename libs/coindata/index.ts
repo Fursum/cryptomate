@@ -1,4 +1,4 @@
-import { Symbol_T, CoinData_T, CoinData_Attributes } from "./types";
+import {CoinData_T, CoinData_Attributes } from "./types";
 import Data from "./data.json";
 
 // TODO Add tests later
@@ -12,7 +12,7 @@ class CoinData {
     return this.data;
   }
 
-  getCoin(symbol: Symbol_T, attribute?: CoinData_Attributes) {
+  getCoin(symbol: string, attribute?: CoinData_Attributes) {
     let coin = this.data.find(
       (c: CoinData_T) => c.symbol!.toLowerCase() == symbol.toLowerCase()
     );
