@@ -13,7 +13,7 @@ const Header: FunctionComponent = () => {
 
   return (
     <div className={styles.header}>
-      <Link href="/">
+      <Link href="/" passHref={true}>
         <div className={styles.logo}>
           <Gear />
           <span>Cryptomate</span>
@@ -21,7 +21,7 @@ const Header: FunctionComponent = () => {
       </Link>
       <SearchBar />
       {session && (
-        <Link href="/profile">
+        <Link href="/profile" passHref={true}>
           <span className={styles.profile}>
             <Image
               src="/person.png"
