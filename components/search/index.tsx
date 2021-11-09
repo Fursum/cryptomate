@@ -2,12 +2,14 @@ import { useRouter } from "next/router";
 import { FunctionComponent, useState, useEffect } from "react";
 import styles from "./searchBar.module.css";
 import SearchResults from "./searchResults";
+import SearchResults_T from "./searchResults/resultsType";
 
 const SearchBar: FunctionComponent = () => {
   const [value, setValue] = useState("");
-  const [searchData, setSearchData] = useState([]);
+  const [searchData, setSearchData] = useState(new Array<SearchResults_T>());
   const router = useRouter();
 
+  //Clear search bar when the page changes
   useEffect(() => {
     router.events.on("routeChangeComplete", () => {
       setSearchData([]);
@@ -15,11 +17,17 @@ const SearchBar: FunctionComponent = () => {
     });
   }, [router.events]);
 
+  //Submit first result
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    setValue("");
+    if(searchData){
+      let searchRoute = `/search/${searchData[0].baseAsset}/${searchData[0].quoteAsset}`
+      router.push(searchRoute);
+      setValue("");
+    }
   };
 
+  //Constlantly update search results
   const handleChange = async (event: { target: HTMLInputElement }) => {
     if (event.target.value)
       fetch(`/api/search/${event.target.value.replace("/", "")}`)
