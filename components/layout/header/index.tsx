@@ -28,6 +28,7 @@ const Header: FunctionComponent = () => {
               width="50px"
               height="60px"
               layout="responsive"
+              alt="Profile Image"
             />
           </span>
         </Link>

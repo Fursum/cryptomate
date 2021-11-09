@@ -23,7 +23,6 @@ const SearchBar: FunctionComponent = () => {
     if(searchData){
       let searchRoute = `/search/${searchData[0].baseAsset}/${searchData[0].quoteAsset}`
       router.push(searchRoute);
-      setValue("");
     }
   };
 
