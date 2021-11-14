@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import { useSession } from "next-auth/client";
-import SignOut from "@components/layout/header/auth/signout";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/client";
+
+import SignOut from "@components/auth/signout";
 
 const Dashboard: NextPage = () => {
   const [session] = useSession();
@@ -24,7 +25,5 @@ const Dashboard: NextPage = () => {
     </>
   );
 };
-
-
 
 export default Dashboard;

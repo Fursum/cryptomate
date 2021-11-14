@@ -1,0 +1,138 @@
+.automateContainer{
+  display: flex;
+  flex-direction: column;
+  max-width: 40em;
+}
+
+.actionContainer {
+  position: relative;
+
+  border-radius: 0.5em;
+  padding: 0.25em;
+  margin-bottom: 1em;
+
+  box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.15);
+
+  user-select: none;
+}
+
+.addOrder {
+  background-color: var(--main);
+  color: var(--black);
+
+  font-size: large;
+  font-weight: 700;
+
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+
+  border: 0;
+  border-radius: 0.5em;
+
+  cursor: pointer;
+}
+
+.closeButton {
+  overflow: hidden;
+
+  opacity: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1em;
+  height: 1em;
+
+  background-color: var(--red);
+  color: var(--white);
+
+  font-weight: 700;
+  font-size: 1em;
+
+  border-radius: 1em;
+  border: 0;
+
+  position: absolute;
+  top: -0.5em;
+  left: -0.5em;
+
+  cursor: pointer;
+}
+
+.closeButton > span {
+  margin-bottom: 0.3em;
+}
+
+.actionContainer:hover .closeButton {
+  opacity: 1;
+}
+
+.comparisonLine,
+.actionLine {
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--white);
+  margin-top: 0.4em;
+}
+
+.comparisonLine > span {
+  margin-inline: 0.25em;
+  margin-top: 0.4em;
+}
+
+.comparisonLine > * {
+  margin-block: 0.25em;
+}
+
+.actionLine {
+  margin-left: 3.05em;
+}
+
+.valueInput,
+.actionInput {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: large;
+  font-weight: 700;
+
+  border: none;
+
+  padding-inline: 0.5em;
+  padding-block: 0.2em;
+  margin-block: 0.25em;
+  margin-inline: 0.25em;
+
+  border-radius: 0.5em;
+}
+
+@keyframes closeAnimation {
+  0% {
+    opacity: 1;
+  }
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.closing {
+  opacity: 0;
+  transform-origin: top left;
+  animation: closeAnimation 0.5s ease-out;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-grow: 1;
+}
+
+.slotInfo {
+  color: var(--main);
+  margin: auto;
+}
+
+.saveButton {
+  background: green;
+  color: var(--white);
+}

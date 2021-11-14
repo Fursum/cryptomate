@@ -21,7 +21,7 @@
 
 .signOut > a {
   font-weight: bold;
-  background-color: #850000;
+  background-color: var(--red);
   color: var(--white);
   width: fit-content;
 }
