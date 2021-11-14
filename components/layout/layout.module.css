@@ -5,6 +5,7 @@
 .mainWrapper > main {
   margin: 1em;
   width: 100%;
+  bottom: 0;
 }
 
 /*# sourceMappingURL=layout.module.css.map */

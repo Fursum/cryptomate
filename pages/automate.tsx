@@ -1,3 +1,4 @@
+import Automate from "@components/automate/";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -12,6 +13,7 @@ const Dashboard: NextPage = () => {
                 />
                 <link rel="icon" href="/svg/raw/gear.svg" />
             </Head>
+            <Automate/>
         </>
     );
 };
