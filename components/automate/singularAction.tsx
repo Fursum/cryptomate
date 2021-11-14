@@ -7,10 +7,10 @@ import { AutomateData_T } from ".";
 import styles from "./automate.module.css";
 
 interface Props {
-  id: number;
+  id: string;
   data: AutomateData_T;
-  setData: (data: AutomateData_T, index: number) => any;
-  remove: (index: number) => any;
+  setData: (data: AutomateData_T, index: string) => any;
+  remove: (index: string) => any;
 }
 
 const SingularAction: FunctionComponent<Props> = ({ id, data, setData, remove }) => {
@@ -26,7 +26,7 @@ const SingularAction: FunctionComponent<Props> = ({ id, data, setData, remove })
   //Using numbers to check, to run this only once
   useEffect(() => {
     if(isClosing == 1){
-      setIsClosing(2);
+      setIsClosing(0);
       setTimeout(() => {
         remove(id);
       }, 100);}
@@ -37,6 +37,7 @@ const SingularAction: FunctionComponent<Props> = ({ id, data, setData, remove })
     if (!isClosing)
       setData(
         {
+          id: id,
           dataType: dataType,
           comparisonType: comparisonType,
           actionType: actionType,

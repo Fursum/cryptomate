@@ -10,6 +10,7 @@ import {
 import SingularAction from "./singularAction";
 
 export type AutomateData_T = {
+  id: string;
   dataType: DataType;
   comparisonType: ComparisonType;
   comparisonValue: string; //number input
@@ -26,6 +27,8 @@ const Automate: FunctionComponent = () => {
     if (addAction) {
       let newData = automateData;
       newData.push({
+        // Questionable id generation
+        id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
         actionType: "buy",
         actionValue: "0",
         comparisonType: "<",
@@ -38,17 +41,18 @@ const Automate: FunctionComponent = () => {
     }
   }, [addAction]);
 
-  const dataChangeHandler = (data: AutomateData_T, index: number) => {
-    let newData = [...automateData];
-    newData[index] = data;
-    setAutomateData(newData);
+  const dataChangeHandler = (data: AutomateData_T, id: string) => {
+    setAutomateData((prevData) => {
+      const index = prevData.findIndex(e =>  e.id == id)
+      let newData = [...prevData];
+      newData[index] = data;
+      return newData;
+    });
   };
 
-  const removeHandler = (index: number) => {
-    console.log("removing " + (index + 1));
+  const removeHandler = (id: string) => {
     setAutomateData((prevData) => {
-      let newData = [...prevData];
-      newData.splice(index, 1);
+      let newData = prevData.filter(element => element.id != id);
       return newData;
     });
   };
@@ -58,8 +62,8 @@ const Automate: FunctionComponent = () => {
       {automateData.map((element, index) => {
         return (
           <SingularAction
-            id={index}
-            key={index}
+            id={element.id}
+            key={element.id}
             data={element}
             setData={dataChangeHandler}
             remove={removeHandler}
