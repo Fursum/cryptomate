@@ -1,6 +1,5 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import { ActionType, ComparisonType, CurrencyType, DataType } from "./AutomateTypes";
-import { AddActionButton } from "./selectionComponents";
 import DropdownSelect from "./selectionComponents/dropdownSelect";
 import { AutomateData_T } from ".";
 
@@ -26,10 +25,10 @@ const SingularAction: FunctionComponent<Props> = ({ id, data, setData, remove })
   //Using numbers to check, to run this only once
   useEffect(() => {
     if(isClosing == 1){
-      setIsClosing(0);
+      setIsClosing(2);
       setTimeout(() => {
         remove(id);
-      }, 100);}
+      }, 500);}
   }, [isClosing]);
 
   //Handles data change
@@ -56,14 +55,14 @@ const SingularAction: FunctionComponent<Props> = ({ id, data, setData, remove })
 
   return (
     <div className={`${styles.actionContainer} ${isClosing && styles.closing}`}>
-      <button
+      <div
         className={styles.closeButton}
         onClick={() => {
           setIsClosing(isClosing + 1);
         }}
       >
-        X
-      </button>
+        <span>-</span>
+      </div>
       <div className={styles.comparisonLine}>
         <span>When</span>
         <DropdownSelect

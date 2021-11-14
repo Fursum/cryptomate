@@ -16,3 +16,13 @@ export type Conditions = {
   conditions: Conditions[] | undefined;
   comparison: Comparison | undefined;
 };
+
+export type AutomateData_T = {
+  id: string;
+  dataType: DataType;
+  comparisonType: ComparisonType;
+  comparisonValue: string; //number input
+  actionType: ActionType;
+  actionValue: string; //number input
+  currencyType: CurrencyType;
+};

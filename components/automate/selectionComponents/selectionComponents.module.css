@@ -21,11 +21,13 @@
 
 .wideDropdownButton {
   width: 10em;
+  margin-block: 0.25em;
 }
 
 .smallDropdownButton {
   width: 3em;
   justify-content: center;
+  margin-block: 0.25em;
 }
 
 .selected{

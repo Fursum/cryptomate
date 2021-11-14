@@ -16,21 +16,16 @@ interface Props {
 }
 
 const Search: NextPage<Props> = ({ avgPrice, coinData, error }) => {
-  
   const successHead = (
     <Head>
-      <title>
-        Cryptomate - {`${coinData.base} / ${coinData.converted}`}
-      </title>
+      <title>Cryptomate - {`${coinData.base} / ${coinData.converted}`}</title>
       <meta name="description" content="Automate your cryptos" />
       <link rel="icon" href="/svg/raw/gear.svg" />
     </Head>
   );
   const errorHead = (
     <Head>
-      <title>
-        Cryptomate - Page Not Found
-      </title>
+      <title>Cryptomate - Page Not Found</title>
       <meta name="description" content="This page does not exist!" />
       <link rel="icon" href="/svg/raw/gear.svg" />
     </Head>
