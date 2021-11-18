@@ -1,5 +1,4 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import { DataType } from "../AutomateTypes";
 import styles from "./selectionComponents.module.css";
 
 interface Props {

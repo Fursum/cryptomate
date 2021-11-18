@@ -1,0 +1,205 @@
+.actionContainer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 0.5em;
+  padding: 0.25em;
+  margin-bottom: 1em;
+
+  box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.15);
+
+  user-select: none;
+}
+
+.closeActionButton {
+  opacity: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1em;
+  height: 1em;
+
+  background-color: var(--red);
+  color: var(--white);
+
+  font-weight: 700;
+  font-size: 1em;
+
+  border-radius: 1em;
+  border: 0;
+
+  position: absolute;
+  top: -0.5em;
+  left: -0.5em;
+
+  cursor: pointer;
+}
+
+.closeActionButton > span {
+  margin-bottom: 0.3em;
+}
+
+.actionContainer:hover .closeActionButton {
+  opacity: 1;
+}
+
+.comparisonLine,
+.actionLine {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.4em;
+
+  position: relative;
+}
+
+.comparisonLine > span {
+  margin-inline: 0.25em;
+  margin-top: 0.4em;
+}
+
+.comparisonLine > * {
+  margin-block: 0.25em;
+}
+
+.valueInput,
+.actionInput {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: large;
+  font-weight: 700;
+
+  border: none;
+
+  padding-inline: 0.5em;
+  padding-block: 0.2em;
+  margin-block: 0.25em;
+  margin-inline: 0.25em;
+
+  border-radius: 0.5em;
+}
+
+@keyframes closeAnimation {
+  0% {
+    opacity: 1;
+  }
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.closing {
+  opacity: 0;
+  transform-origin: top left;
+  animation: closeAnimation 0.5s ease-out;
+}
+
+.comparisonGroupContainer,
+.comparisonLinesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  border-radius: 0.5em;
+  margin-block: 0.5em;
+  margin-inline: 0.5em;
+  padding-block: 1em;
+}
+
+.showBorder {
+  box-shadow: -0.1em 0 0 0 var(--white), 0.1em 0 0 0 var(--white);
+}
+
+.comparisonGroup {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  margin-block: 0.5em;
+}
+
+.comparisonGroup:not(:last-child)::after {
+  position: absolute;
+  bottom: -0.5em;
+
+  content: "";
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--gray);
+  mix-blend-mode: overlay;
+}
+
+.addLineButton,
+.addGroupButton,
+.groupTypeButton,
+.actionGroupTypeButton {
+  border: 0;
+  background-color: transparent;
+  color: var(--white);
+  position: absolute;
+  left: 1em;
+
+  z-index: 10;
+}
+
+.addLineButton:hover,
+.addGroupButton:hover,
+.groupTypeButton:hover,
+.actionGroupTypeButton:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.addLineButton {
+  bottom: 0em;
+  left: 1.5em;
+}
+
+.addGroupButton {
+  bottom: 3.5em;
+}
+
+.groupTypeButton,
+.actionGroupTypeButton {
+  top: -0.5em;
+}
+
+.actionGroupTypeButton {
+  top: 0.5em;
+}
+
+.removeLineButton,
+.closeGroupButton {
+  opacity: 0;
+  position: absolute;
+  background-color: var(--red);
+  color: var(--white);
+
+  border: 0;
+  border-radius: 1em;
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+.comparisonLine:hover .removeLineButton, .comparisonGroup:hover .closeGroupButton{
+  opacity: 1;
+}
+
+.removeLineButton {
+  left: 0.75em;
+  top: 0.5em;
+}
+
+.closeGroupButton {
+
+  top: 0;
+  right: 1.5em;
+
+}
