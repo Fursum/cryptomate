@@ -47,7 +47,7 @@
   
   border-radius: 0.5em;
 
-  z-index: 10;
+  z-index: 20;
 }
 
 .smallDropdownButton .dropdownOption{

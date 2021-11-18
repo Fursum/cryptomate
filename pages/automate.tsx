@@ -11,7 +11,7 @@ const Dashboard: NextPage<Props> = ({actionLimit}) => {
     <>
       <Head>
         <title>Cryptomate - Automate</title>
-        <meta name="description" content="Automate your cryptos" />
+        <meta name="description" content="Setup your automation" />
         <link rel="icon" href="/svg/raw/gear.svg" />
       </Head>
       <Automate actionLimit={actionLimit} />
