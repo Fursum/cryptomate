@@ -14,6 +14,7 @@
 }
 
 .layoutWithTitle > h1 {
+  line-height: 0;
   color: var(--white);
   text-align: center;
 }
