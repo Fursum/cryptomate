@@ -1,19 +1,37 @@
+.layoutWithTitle {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+
+  gap: 1em;
+  padding-inline: 1em;
+}
+
+.layoutWithTitle > h1 {
+  color: var(--white);
+  text-align: center;
+}
+
 .layout {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
 
-  gap: 1em;
-
   height: 100%;
+  width: 100%;
   min-width: 0;
-  max-width: 50em;
-  padding-inline: auto;
-  margin: auto;
+  max-width: 60em;
+
+  gap: 1em;
+  padding-inline: 1em;
 
   overflow-y: auto;
-
-  justify-content: center;
 }
 
 .left {
@@ -25,8 +43,6 @@
   max-height: 100%;
   min-width: 20em;
   max-width: 35em;
-  
-  margin-inline: 0.5em;
 }
 
 .right {
@@ -36,6 +52,4 @@
   min-height: 0;
   min-width: 20em;
   max-width: 35em;
-
-  margin-inline: 0.5em;
 }

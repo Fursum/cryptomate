@@ -17,7 +17,9 @@ interface Props {
 
 const SearchPageComponents: FunctionComponent<Props> = ({ coinData }) => {
   return (
-    <div className={styles.layout}>
+    <div className={styles.layoutWithTitle}>
+      <h1>{`${coinData.baseSymbol} / ${coinData.convertedSymbol}`}</h1>
+      <div className={styles.layout}>
       <div className={styles.left}>
         <ChartDisplay baseSymbol={coinData.baseSymbol} convertedSymbol={coinData.convertedSymbol} />
         <TransactionHistory
@@ -32,6 +34,9 @@ const SearchPageComponents: FunctionComponent<Props> = ({ coinData }) => {
         />
       </div>
     </div>
+    </div>
+    
+    
   );
 };
 

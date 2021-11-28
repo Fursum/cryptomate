@@ -11,9 +11,10 @@
 }
 
 .transactionList{
-  overflow-y: auto;
-
+  display: flex;
+  flex-direction: column;
   gap: 0.5em;
+  overflow-y: auto;
   padding-inline: 1em;
   margin-block-end: 1em;
 }
