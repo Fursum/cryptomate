@@ -14,7 +14,10 @@ const Dashboard: NextPage<Props> = ({actionLimit}) => {
         <meta name="description" content="Setup your automation" />
         <link rel="icon" href="/svg/raw/gear.svg" />
       </Head>
-      <Automate actionLimit={actionLimit} />
+      <div className="automate-layout">
+        <Automate actionLimit={actionLimit} />
+      </div>
+      
     </>
   );
 };

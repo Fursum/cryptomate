@@ -10,7 +10,7 @@
   padding-inline: 0.5em;
   margin-inline: 0.25em;
 
-  border-radius: 0.5em;
+  border-radius: var(--borderRadius);
 
   font-size: large;
   font-weight: 700;
@@ -45,7 +45,7 @@
   background-color: var(--blackDrop);
   backdrop-filter: blur(10px);
   
-  border-radius: 0.5em;
+  border-radius: var(--borderRadius);
 
   z-index: 20;
 }

@@ -15,7 +15,8 @@
       "@components/*": ["components/*"],
       "@localization": ["localization/index"],
       "@public/*": ["public/*"],
-      "@libs/*": ["libs/*"]
+      "@libs/*": ["libs/*"],
+      "@styles/*": ["styles/*"]
     },
     "resolveJsonModule": true,
     "isolatedModules": true,

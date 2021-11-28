@@ -26,7 +26,7 @@ const SearchBar: FunctionComponent = () => {
     }
   };
 
-  //Constlantly update search results
+  //Constantly update search results
   const handleChange = async (event: { target: HTMLInputElement }) => {
     if (event.target.value)
       fetch(`/api/search/${event.target.value.replace("/", "")}`)

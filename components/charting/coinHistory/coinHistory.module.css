@@ -1,0 +1,59 @@
+.chartWrapper {
+
+  background-color: var(--darkGray);
+  border-radius: var(--borderRadius);
+  padding: 1em;
+  padding-top: 0;
+
+}
+
+.chartWrapper > h3 {
+
+  text-align: center;
+
+}
+
+.buttonDeck {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 0.5em;
+  gap: 0.25em;
+}
+
+.buttonActive,
+.buttonInactive {
+  background-color: transparent;
+  border: 0;
+  color: var(--white);
+
+  cursor: pointer;
+}
+
+.buttonActive {
+  position: relative;
+  color: var(--black);
+  z-index: 1;
+}
+
+@keyframes SelectionAppear {
+  0% {
+    opacity: 0.5;
+    transform: scale(30%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+
+.buttonActive:after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-color: var(--white);
+  border-radius: var(--borderRadius);
+  transform-origin: center;
+  animation: SelectionAppear 0.15s cubic-bezier(0, 0.08, 0, 1.22);
+  z-index: -1;
+}

@@ -1,49 +1,38 @@
 import { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 
-import CoinDisplay from "@components/coindisplay";
-import CoinData, { CoinData_T } from "@libs/coindata";
-import Binance, { AvgPriceResult } from "binance-api-node";
+import Binance from "binance-api-node";
+import CoinData from "@libs/coindata";
+
+import SearchPageComponents from "@components/pageLayouts/search";
 
 interface Props {
-  avgPrice: AvgPriceResult;
   coinData: {
-    base: CoinData_T;
-    converted: CoinData_T;
+    baseName: string;
+    baseSymbol: string;
+    convertedName: string;
+    convertedSymbol: string;
   };
-  error: Error;
+  historyData: Array<any>;
 }
 
-const Search: NextPage<Props> = ({ avgPrice, coinData, error }) => {
-  const successHead = (
+const Search: NextPage<Props> = ({ coinData, historyData }) => {
+  const pageHead = (
     <Head>
-      <title>Cryptomate - {`${coinData.base} / ${coinData.converted}`}</title>
-      <meta name="description" content="Automate your cryptos" />
+      <>
+        <title>Cryptomate - {`${coinData.baseSymbol} / ${coinData.convertedSymbol}`}</title>
+        <meta name="description" content="" />
+      </>
       <link rel="icon" href="/svg/raw/gear.svg" />
     </Head>
-  );
-  const errorHead = (
-    <Head>
-      <title>Cryptomate - Page Not Found</title>
-      <meta name="description" content="This page does not exist!" />
-      <link rel="icon" href="/svg/raw/gear.svg" />
-    </Head>
-  );
-  const pageContent = (
-    <>
-      {successHead}
-      <CoinDisplay metadata={coinData} price={avgPrice.price} />
-    </>
-  );
-  const errorContent = (
-    <>
-      {errorHead}
-      <div className={"error"}>Error: {error}</div>
-    </>
   );
 
-  return error ? errorContent : pageContent;
+  return (
+    <>
+      {pageHead}
+      <SearchPageComponents coinData={coinData} />
+    </>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -53,34 +42,19 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   });
   const coinData = CoinData;
 
-  const symbol = String(ctx.params?.searchParams?.[0]).toUpperCase();
-  const convertTo = String(ctx.params?.searchParams?.[1].toUpperCase());
-  let avgPrice: AvgPriceResult | AvgPriceResult[] = {
-    mins: 0,
-    price: "0",
-  };
-  let err: string = "";
-
-  try {
-    if (symbol)
-      avgPrice = await client.avgPrice({
-        symbol: (symbol + convertTo).toUpperCase(),
-      });
-  } catch (error: any) {
-    err = error.message;
-  }
-
-  const base = coinData.getCoin(symbol, "name");
-  const converted = coinData.getCoin(convertTo, "name");
+  const baseSymbol = String(ctx.params?.searchParams?.[0]).toUpperCase();
+  const convertedSymbol = String(ctx.params?.searchParams?.[1].toUpperCase());
+  const baseName = coinData.getCoin(baseSymbol, "name");
+  const convertedName = coinData.getCoin(convertedSymbol, "name");
 
   return {
     props: {
-      avgPrice: avgPrice,
       coinData: {
-        base: base ? base : symbol,
-        converted: converted ? converted : convertTo,
+        baseName: baseName ? baseName : baseSymbol,
+        baseSymbol: baseSymbol,
+        converted: convertedName ? convertedName : convertedSymbol,
+        convertedSymbol: convertedSymbol,
       },
-      error: err,
     },
   };
 };
