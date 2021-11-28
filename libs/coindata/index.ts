@@ -3,7 +3,7 @@ import Data from "./data.json";
 
 // TODO Add tests later
 class CoinData {
-  data: Array<CoinData_T>;
+  data: Array<CoinData_T> | any;
   constructor() {
     this.data = Data;
   }
