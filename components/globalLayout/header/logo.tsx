@@ -7,10 +7,10 @@ import styles from "./header.module.css";
 const Logo:FunctionComponent = () => {
   return (
     <Link href="/" passHref={true}>
-      <div className={styles.logo}>
+      <a className={styles.logo}>
         <Gear />
         <span>Cryptomate</span>
-      </div>
+      </a>
     </Link>
   );
 };

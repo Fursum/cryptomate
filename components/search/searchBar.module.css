@@ -47,4 +47,11 @@
   width: 1px;
 }
 
+@media (max-width:20em) {
+  .searchInput{
+    margin-left: 0.5em;
+    margin-right: auto;
+  }
+}
+
 /*# sourceMappingURL=searchBar.module.css.map */

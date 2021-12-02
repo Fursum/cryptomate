@@ -13,12 +13,14 @@
 
 }
 
-.outerButton:hover{
+.outerButton:hover, .outerButton:target, .outerButton:focus{
 
   cursor: pointer;
   background-color: var(--main);
   --symbolColor: var(--black);
   --textColor: var(--black);
+
+  outline: 0;
   
 }
 

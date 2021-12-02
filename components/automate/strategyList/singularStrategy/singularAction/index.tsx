@@ -6,7 +6,7 @@ import {
   ComparisonGroup_T,
   ComparisonType,
   ConditionType,
-} from "../AutomateTypes";
+} from "@components/automate/AutomateTypes";
 
 import styles from "./actionComponents.module.css";
 import ActionLine from "./actionLine";

@@ -16,7 +16,7 @@ const ResultsElement: FunctionComponent<Props> = ({ data }) => {
 
   return (
     <Link href={`/search/${data.baseAsset}/${data.quoteAsset}`} passHref={true}>
-      <div className={styles.outerButton}>
+      <a className={styles.outerButton}>
         <div className={styles.leftSide}>
           <p className={styles.symbol}>{data.baseAsset}</p>
           <p className={styles.name}>{baseName || data.baseAsset}</p>
@@ -25,7 +25,7 @@ const ResultsElement: FunctionComponent<Props> = ({ data }) => {
           <p className={styles.symbol}>{data.quoteAsset}</p>
           <p className={styles.name}>{quoteName || data.quoteAsset}</p>
         </div>
-      </div>
+      </a>
     </Link>
   );
 };

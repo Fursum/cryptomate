@@ -42,6 +42,13 @@
   outline: 0.1em solid var(--black);
   box-shadow: 0 0 0 0.15em var(--white);
   cursor: pointer;
+
+  z-index: 2;
 }
 
-/*# sourceMappingURL=header.module.css.map */
+@media (max-width:35em) {
+  .logo > span {
+    width: 0;
+    overflow: hidden;
+  } 
+}

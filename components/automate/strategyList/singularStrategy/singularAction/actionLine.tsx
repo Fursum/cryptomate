@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { ActionData_T, ActionType, CurrencyType } from "../AutomateTypes";
-import DropdownSelect from "../selectionComponents/dropdownSelect";
+import { ActionData_T, ActionType, CurrencyType } from "@components/automate/AutomateTypes";
+import DropdownSelect from "./selectionComponents/dropdownSelect";
 
 import styles from "./actionComponents.module.css"
 

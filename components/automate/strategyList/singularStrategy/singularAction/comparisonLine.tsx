@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { ComparisonLineData_T, ComparisonType, DataType } from "../AutomateTypes";
-import DropdownSelect from "../selectionComponents/dropdownSelect";
+import { ComparisonLineData_T, ComparisonType, DataType } from "@components/automate/AutomateTypes";
+import DropdownSelect from "./selectionComponents/dropdownSelect";
 
 import styles from "./actionComponents.module.css";
 

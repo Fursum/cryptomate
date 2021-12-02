@@ -1,6 +1,7 @@
 :root{
 
   --main: hsl(48, 97%, 60%);
+  --mainHover: hsl(48, 41%, 62%);
   --black: hsl(60, 4%, 15%);
   --darkGray: hsla(60, 4%, 20%, 35%);
   --gray: hsl(60, 4%, 60%);

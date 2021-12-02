@@ -10,7 +10,6 @@
   align-items: center;
 
   gap: 1em;
-  padding-inline: 1em;
 }
 
 .layoutWithTitle > h1 {
@@ -23,12 +22,12 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+  justify-content: center;
 
   height: 100%;
   width: 100%;
-  min-width: 0;
   max-width: 60em;
-
+  
   gap: 1em;
   padding-inline: 1em;
 
@@ -42,7 +41,7 @@
   gap: 1em;
   min-height: 0;
   max-height: 100%;
-  min-width: 20em;
+  min-width: 15em;
   max-width: 35em;
 }
 

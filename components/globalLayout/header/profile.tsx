@@ -7,7 +7,7 @@ import styles from "./header.module.css";
 const Profile: FunctionComponent = () => {
   return (
     <Link href="/profile" passHref={true}>
-      <span className={styles.profile}>
+      <a className={styles.profile}>
         <Image
           src="/person.png"
           width="50px"
@@ -15,7 +15,7 @@ const Profile: FunctionComponent = () => {
           layout="responsive"
           alt="Profile Image"
         />
-      </span>
+      </a>
     </Link>
   );
 };

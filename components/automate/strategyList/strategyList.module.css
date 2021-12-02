@@ -1,0 +1,47 @@
+.strategyContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 20em;
+
+  background-color: var(--darkGray);
+  color: var(--white);
+
+  align-items: center;
+}
+
+.strategyList {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  width: 100%;
+  margin-bottom: 1em;
+  padding-inline: 1em;
+  
+  overflow-y: auto;
+  overscroll-behavior: auto;
+
+  align-items: center;
+}
+
+.newStrategy{
+  background-color: var(--main);
+  color: var(--black);
+
+  border-radius: var(--borderRadius);
+  border: 0;
+
+  margin-top: 1em;
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+
+  font-size: large;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.newStrategy:hover{
+  background-color: var(--mainHover);
+}

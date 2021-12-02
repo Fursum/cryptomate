@@ -4,7 +4,7 @@ import ChartDisplay from "@components/charting/coinHistory";
 import TransactionHistory from "@components/transactionHistory";
 
 import styles from "./searchLayout.module.css";
-import ShallowList from "@components/automate/shallowList";
+import StrategyList from "@components/automate/strategyList";
 
 interface Props {
   coinData: {
@@ -20,23 +20,24 @@ const SearchPageComponents: FunctionComponent<Props> = ({ coinData }) => {
     <div className={styles.layoutWithTitle}>
       <h1>{`${coinData.baseSymbol} / ${coinData.convertedSymbol}`}</h1>
       <div className={styles.layout}>
-      <div className={styles.left}>
-        <ChartDisplay baseSymbol={coinData.baseSymbol} convertedSymbol={coinData.convertedSymbol} />
-        <TransactionHistory
-          baseSymbol={coinData.baseSymbol}
-          convertedSymbol={coinData.convertedSymbol}
-        />
-      </div>
-      <div className={styles.right}>
-        <ShallowList
-          baseSymbol={coinData.baseSymbol}
-          convertedSymbol={coinData.convertedSymbol}
-        />
+        <div className={styles.left}>
+          <ChartDisplay
+            baseSymbol={coinData.baseSymbol}
+            convertedSymbol={coinData.convertedSymbol}
+          />
+          <TransactionHistory
+            baseSymbol={coinData.baseSymbol}
+            convertedSymbol={coinData.convertedSymbol}
+          />
+        </div>
+        <div className={styles.right}>
+          <StrategyList
+            baseSymbol={coinData.baseSymbol}
+            convertedSymbol={coinData.convertedSymbol}
+          />
+        </div>
       </div>
     </div>
-    </div>
-    
-    
   );
 };
 

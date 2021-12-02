@@ -1,38 +1,38 @@
-import { ActionData_T } from "../../../components/automate/AutomateTypes";
 import { NextApiRequest } from "next";
 import { NextApiResponse } from "next-auth/internals/utils";
 import { getSession } from "next-auth/client";
 
-const exampleActionData: ActionData_T[] = Array(10)
+import randomID  from '@libs/functions/randomID';
+import { Strategy_T } from "@components/automate/AutomateTypes";
+
+const exampleData: Strategy_T[] = Array(20)
   .fill({})
   .map(() => {
-    const randomAction = Math.random() < 0.5 ? "buy" : "sell";
     const randomValue = Math.floor(Math.random() * 1000).toString();
 
-    const randomData: ActionData_T = {
-      actionType: randomAction,
-      actionValue: randomValue,
-      currencyType: "local",
+    const randomData: Strategy_T = {
+      id: randomID(),
+      creationDate: new Date(),
+      lastUpdate: new Date(),
+      orderList: [],
+      title: "Test title: " + randomValue,
+      totalBuyCap: 0
     };
 
     return randomData;
   });
 
-const exampleResponse = {
-  actions: exampleActionData,
-};
-
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getSession({ req });
 
   if (session) {
-    let data: ActionData_T[] = [];
+    let data: Strategy_T[] = [];
 
     //Fetch data
 
-    data = exampleResponse.actions;
+    data = exampleData;
 
-    res.status(200).json({ actions: data, user: session });
+    res.status(200).json({ list: data, user: session });
   }
 
   // Not Signed in
