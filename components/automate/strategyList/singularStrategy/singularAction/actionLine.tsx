@@ -1,12 +1,12 @@
 import { FunctionComponent, useEffect, useState } from "react";
-import { ActionData_T, ActionType, CurrencyType } from "@components/automate/AutomateTypes";
+import { ActionLineData_T, ActionType, CurrencyType } from "@components/automate/AutomateTypes";
 import DropdownSelect from "./selectionComponents/dropdownSelect";
 
 import styles from "./actionComponents.module.css"
 
 interface Props {
-  data: ActionData_T;
-  setData: (data: ActionData_T) => any;
+  data: ActionLineData_T;
+  setData: (data: ActionLineData_T) => any;
   isClosing: number
 }
 

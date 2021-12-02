@@ -1,6 +1,6 @@
 import randomID from "@libs/functions/randomID";
 import { FunctionComponent, useEffect, useState } from "react";
-import { ComparisonGroup_T, ComparisonLineData_T, ConditionType } from "../AutomateTypes";
+import { ComparisonGroup_T, ComparisonLineData_T, ConditionType } from "@components/automate/AutomateTypes";
 
 import styles from "./actionComponents.module.css";
 import ComparisonLine from "./comparisonLine";
