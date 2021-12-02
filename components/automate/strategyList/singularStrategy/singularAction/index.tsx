@@ -1,8 +1,8 @@
 import randomID from "@libs/functions/randomID";
 import { FunctionComponent, useEffect, useState } from "react";
 import {
-  AutomateData_T,
-  ActionData_T,
+  Order_T,
+  ActionLineData_T,
   ComparisonGroup_T,
   ComparisonType,
   ConditionType,
@@ -14,8 +14,8 @@ import ComparisonGroup from "./comparisonGroup";
 
 interface Props {
   id: string;
-  data: AutomateData_T;
-  setData: (data: AutomateData_T) => any;
+  data: Order_T;
+  setData: (data: Order_T) => any;
   remove: (index: string) => any;
 }
 
@@ -24,7 +24,7 @@ const SingularAction: FunctionComponent<Props> = ({ id, data, setData, remove })
     data.comparisonGroups
   );
   const [groupType, setGroupType] = useState<ConditionType>(data.conditionBetweenGroups);
-  const [actionLineData, setActionLineData] = useState<ActionData_T>(data.actionData);
+  const [actionLineData, setActionLineData] = useState<ActionLineData_T>(data.actionData);
   const [isClosing, setIsClosing] = useState(0);
 
   //Remove the action after animation
