@@ -1,9 +1,3 @@
-.automateContainer{
-  display: flex;
-  flex-direction: column;
-  max-width: 40em;
-}
-
 .addOrder {
   background-color: var(--main);
   color: var(--black);
@@ -20,18 +14,44 @@
   cursor: pointer;
 }
 
-.bottomContainer {
+.fullscreenBackground{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
   display: flex;
-  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--darkGray);
+  backdrop-filter: blur(10px);
+
+  z-index: 5;
 }
 
-.slotInfo {
-  color: var(--main);
-  margin: auto;
+.configWindowBackground{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  flex: 1 0;
+
+  margin-inline: 1em;
+
+  overflow-y: auto;
+
+  max-width: 50em;
+  min-width: 15em;
+  height: 90%;
+
+  position: relative;
+  background-color: var(--blackDrop);
+
 }
 
-.saveButton {
-  background: green;
-  color: var(--white);
+.configWindowBackground::-webkit-scrollbar-thumb{
+  background-color: var(--white);
 }
-

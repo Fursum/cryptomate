@@ -4,7 +4,6 @@ import {
   Order_T,
   ActionLineData_T,
   ComparisonGroup_T,
-  ComparisonType,
   ConditionType,
 } from "@components/automate/AutomateTypes";
 

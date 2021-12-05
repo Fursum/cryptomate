@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { Strategy_T } from "../AutomateTypes";
-import SingularStrategy from "./singularStrategy/singularStrategy";
+import SingularStrategy from "./singularStrategy";
 
 import styles from "./strategyList.module.css";
 
@@ -21,7 +21,7 @@ const ListDisplay: FunctionComponent<Props> = ({
 
   const StrategyList = strategyList?.map((strategy: Strategy_T) => {
     return (
-      <div key={strategy.id}>
+      <div key={strategy.id} className={styles.strategyContainer}>
         <span className={styles.title}>{strategy.title}</span>
         <SingularStrategy
           actionLimit={5}

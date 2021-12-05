@@ -1,21 +1,42 @@
-import { FunctionComponent, useEffect, useState } from "react";
-import SingularAction from "./singularAction";
 import { Order_T, Strategy_T } from "@components/automate/AutomateTypes";
 import randomID from "@libs/functions/randomID";
-
+import { FunctionComponent, useEffect, useRef, useState } from "react";
+import SingularAction from "./singularAction";
 import styles from "./singularStrategy.module.css";
 
 interface Props {
-  actionLimit: number;
   strategy: Strategy_T;
-  updateStrategy: (strategy: Strategy_T) => any;
-  removeStrategy: (id:string) => any;
+  closeModal: () => any;
+  updateStrategy: (data: Strategy_T) => any;
+  removeStrategy: (id: string) => any;
+  actionLimit?: number;
 }
 
-const SingularStrategy: FunctionComponent<Props> = ({ actionLimit, strategy, updateStrategy }) => {
+const ConfigWindow: FunctionComponent<Props> = ({
+  strategy,
+  closeModal,
+  removeStrategy,
+  updateStrategy,
+  actionLimit = 5,
+}) => {
   const [orderList, setOrderList] = useState(strategy.orderList);
   const [title, setTitle] = useState(strategy.title);
   const [buyCap, setBuyCap] = useState(strategy.totalBuyCap);
+
+  //Close modal when clicked outside
+  const componentRef = useRef(null);
+  useEffect(() => {
+    function handleClickOutside(e: Event) {
+      //@ts-ignore
+      if (!componentRef.current?.contains(e.target)) closeModal();
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [componentRef]);
 
   //Send updates to parent
   useEffect(() => {
@@ -46,7 +67,7 @@ const SingularStrategy: FunctionComponent<Props> = ({ actionLimit, strategy, upd
   };
 
   const updateList = (data: Order_T) => {
-    setOrderList(prevData => {
+    setOrderList((prevData) => {
       const index = orderList.findIndex((e) => e.id == data.id);
       let newOrders = [...prevData];
       newOrders[index] = data;
@@ -61,36 +82,16 @@ const SingularStrategy: FunctionComponent<Props> = ({ actionLimit, strategy, upd
     });
   };
 
-  const sendData = () => {
-    console.log(orderList);
-  };
+  const Orders = orderList.map(e =>  {
+    return <SingularAction key={e.id} data={e} id={e.id} remove={removeFromList} setData={updateList} />
+  })
 
   return (
-    <div className={styles.automateContainer}>
-      {orderList.map((element) => {
-        return (
-          <SingularAction
-            id={element.id}
-            key={element.id}
-            data={element}
-            setData={updateList}
-            remove={removeFromList}
-          />
-        );
-      })}
-      <div className={styles.bottomContainer}>
-        <button className={styles.addOrder} onClick={() => addAction}>
-          Add Order
-        </button>
-        <div className={styles.slotInfo}>
-          {orderList.length} / {actionLimit}
-        </div>
-        <button className={styles.saveButton} onClick={sendData}>
-          Save
-        </button>
-      </div>
+    <div ref={componentRef} className={styles.configWindowBackground}>
+      {Orders}
+      <button className={styles.addOrder} onClick={addAction} >Add Action</button>
     </div>
   );
 };
 
-export default SingularStrategy;
+export default ConfigWindow;
