@@ -13,7 +13,7 @@ const Header: FunctionComponent = () => {
 
   return (
     <div className={styles.header}>
-      <Logo />
+      <Logo session={session} />
       <SearchBar />
       {session && <Profile />}
       {!session && !loading && <SignIn />}

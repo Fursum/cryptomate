@@ -13,10 +13,13 @@
   background-color: var(--black);
   color: var(--white);
   font-size: large;
+  font-weight: normal;
+  text-align: left;
   width: 8em;
   border-radius: 2em;
   padding-inline: 0.5em;
   padding-block: 0.25em;
+  margin: 0;
 }
 .searchInput > form > input::placeholder {
   text-align: left;
@@ -31,11 +34,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
-  width: 1em;
+  width: 0.5em;
   right: 0;
   bottom: 0;
   top: 50%;
-  transform: translate(15%, -60%);
+  transform: translate(-10%, -60%);
 }
 .searchInput .hidden {
   clip: rect(0 0 0 0);

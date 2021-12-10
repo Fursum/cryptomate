@@ -1,12 +1,17 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
+import { Session } from "next-auth";
 
 import { Gear } from "@public/svg";
 import styles from "./header.module.css";
 
-const Logo:FunctionComponent = () => {
+interface Props {
+  session: Session | null;
+}
+
+const Logo: FunctionComponent<Props> = ({ session }) => {
   return (
-    <Link href="/" passHref={true}>
+    <Link href={`/${session ? "dashboard": ""}`} passHref>
       <a className={styles.logo}>
         <Gear />
         <span>Cryptomate</span>

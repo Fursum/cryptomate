@@ -30,7 +30,7 @@ const Search: NextPage<Props> = ({ coinData, historyData }) => {
   return (
     <>
       {pageHead}
-      <SearchPageComponents coinData={coinData} />
+      <SearchPageComponents key={`${coinData.baseSymbol}/${coinData.convertedSymbol}`} coinData={coinData} />
     </>
   );
 };

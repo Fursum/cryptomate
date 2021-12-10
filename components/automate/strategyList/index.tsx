@@ -1,7 +1,8 @@
-import randomID from "@libs/functions/randomID";
 import { FunctionComponent, useEffect, useState } from "react";
 import useSWR from "swr";
 
+import randomID from "@libs/functions/randomID";
+import LocalStorage from "@libs/helpers/storage";
 import { Strategy_T } from "@components/automate/AutomateTypes";
 import ListDisplay from "./listDisplay";
 
@@ -20,7 +21,7 @@ const fetcher = (...args: [RequestInfo, RequestInit]) =>
       case 401:
         throw new Error("Not signed in.");
       default:
-        throw new Error("Cannot fetch history data.");
+        throw new Error("Cannot fetch strategy.");
     }
   });
 
@@ -29,11 +30,15 @@ const StrategyList: FunctionComponent<Props> = ({ baseSymbol, convertedSymbol })
   const queryURL = `/api/automate/${baseSymbol}/${convertedSymbol}`;
   const { data, error } = useSWR<any, Error>(queryURL, fetcher);
 
-  //Assign fetched data to component state, to make it modifiable
-  const [strategyList, setStrategyList] = useState<Strategy_T[]>([]);
+  const storageKey = `${baseSymbol}/${convertedSymbol}`.toUpperCase();
+  
+  const [strategyList, setStrategyList] = useState<Strategy_T[]>(LocalStorage.get(storageKey) || []);
+  const [discardable, setDiscardable] = useState(false);
+
   useEffect(() => {
-    if (data) setStrategyList(data.list);
-  }, [data]);
+    if (data && !compareData()) setDiscardable(true);
+    updateStorage();
+  }, [data, strategyList]);
 
   const createNewStrategy = () => {
     const now = new Date(Date.now());
@@ -45,7 +50,7 @@ const StrategyList: FunctionComponent<Props> = ({ baseSymbol, convertedSymbol })
       orderList: [],
       totalBuyCap: 0,
     };
-    setStrategyList((old) => [...old, newStrategy]);
+    setStrategyList((old) => (old ? [...old, newStrategy] : [newStrategy]));
   };
 
   const removeStrategy = (id: string) => {
@@ -61,9 +66,33 @@ const StrategyList: FunctionComponent<Props> = ({ baseSymbol, convertedSymbol })
     });
   };
 
+  const updateStorage = () => {
+    LocalStorage.set(storageKey, strategyList);
+  };
+
+  const syncData = () => {
+    if (data) setStrategyList(data.list);
+    setDiscardable(false);
+  };
+
+  const compareData = () => {
+    const cookieData: Strategy_T[] = LocalStorage.get(storageKey) || [];
+
+    if (strategyList.length != cookieData?.length) return false;
+
+    let equal = true;
+    strategyList.forEach((stateElement) => {
+      if (!equal) return;
+      const found = cookieData?.find((cookieElement) => stateElement === cookieElement);
+      if (!found || found.lastUpdate != stateElement.lastUpdate) equal = false;
+    });
+    return equal;
+  };
+
   return (
     <div className={styles.strategyContainer}>
       <h3>Current Strategies</h3>
+      {discardable && <button onClick={syncData}>Sync</button>}
       {!error ? (
         <ListDisplay
           strategyList={strategyList}

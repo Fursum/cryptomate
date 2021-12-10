@@ -4,10 +4,6 @@ export type ConditionType = "and" | "or" | "single";
 export type ComparisonType = "<" | "<=" | "=" | ">=" | ">";
 export type DataType = "price" | "marketValue" | "TBD";
 
-export type RemoveSelector = "action" | "group" | "line"
-
-export type Comparison = [DataType, ComparisonType, CurrencyType, Number];
-
 export type ComparisonLineData_T = {
   id:string;
   dataType: DataType;

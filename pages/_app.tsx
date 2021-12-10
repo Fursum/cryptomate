@@ -1,15 +1,19 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { Provider } from "next-auth/client";
-import Layout from '@components/globalLayout';
+import App from "next/app";
+import type { AppContext, AppProps } from "next/app";
+import { Provider as AuthProvider } from "next-auth/client";
 
-function MyApp({ Component, pageProps }: AppProps) {
+import Layout from "@components/globalLayout";
+
+import "../styles/globals.css";
+
+//@ts-ignore
+function MyApp({ Component, pageProps, cookies }: AppProps) {
   return (
-    <Provider>
+    <AuthProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </Provider>
+    </AuthProvider>
   );
 }
-export default MyApp
+export default MyApp;

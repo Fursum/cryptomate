@@ -23,28 +23,34 @@ const ConfigWindow: FunctionComponent<Props> = ({
   const [title, setTitle] = useState(strategy.title);
   const [buyCap, setBuyCap] = useState(strategy.totalBuyCap);
 
-  //Close modal when clicked outside
+  //Close modal handler
   const componentRef = useRef(null);
   useEffect(() => {
     function handleClickOutside(e: Event) {
       //@ts-ignore
       if (!componentRef.current?.contains(e.target)) closeModal();
     }
+    function handleESC(e: KeyboardEvent) {
+      if(e.code === "Escape")
+        closeModal()
+    }
     // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keyup", handleESC)
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keyup", handleESC)
     };
   }, [componentRef]);
 
-  //Send updates to parent
   useEffect(() => {
     updateStrategy({
       ...strategy,
       title: title,
       orderList: orderList,
       totalBuyCap: buyCap,
+      lastUpdate: new Date(Date.now()),
     });
   }, [orderList, title, buyCap]);
 
@@ -82,14 +88,33 @@ const ConfigWindow: FunctionComponent<Props> = ({
     });
   };
 
-  const Orders = orderList.map(e =>  {
-    return <SingularAction key={e.id} data={e} id={e.id} remove={removeFromList} setData={updateList} />
-  })
+  const Orders = orderList.map((e) => {
+    return (
+      <SingularAction key={e.id} data={e} id={e.id} remove={removeFromList} setData={updateList} />
+    );
+  });
 
   return (
     <div ref={componentRef} className={styles.configWindowBackground}>
+      <input
+        className={styles.titleInput}
+        type="text"
+        maxLength={32}
+        minLength={2}
+        placeholder="Title"
+        onChange={(e) => setTitle(e.target.value)}
+        value={title}
+      />
       {Orders}
-      <button className={styles.addOrder} onClick={addAction} >Add Action</button>
+      <div className={styles.actionBar}>
+        <button className={styles.removeStrategy} onClick={() => removeStrategy(strategy.id)}>
+          Remove Strategy
+        </button>
+        <button className={styles.addOrder} onClick={addAction}>
+          Add Action
+        </button>
+      </div>
+      <span>Last update: {strategy.lastUpdate.toLocaleString()}</span>
     </div>
   );
 };

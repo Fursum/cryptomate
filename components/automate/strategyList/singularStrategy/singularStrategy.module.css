@@ -1,3 +1,11 @@
+
+
+.actionBar{
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
 .addOrder {
   background-color: var(--main);
   color: var(--black);
@@ -6,12 +14,12 @@
   font-weight: 700;
 
   padding-inline: 0.5em;
-  padding-block: 0.25em;
+  padding-block: 0.25em;  
+}
 
-  border: 0;
-  border-radius: var(--borderRadius);
-
-  cursor: pointer;
+.removeStrategy{
+  background-color: var(--red);
+  color: var(--white);
 }
 
 .fullscreenBackground{
@@ -40,6 +48,7 @@
   flex: 1 0;
 
   margin-inline: 1em;
+  padding: 1em;
 
   overflow-y: auto;
 
@@ -54,4 +63,9 @@
 
 .configWindowBackground::-webkit-scrollbar-thumb{
   background-color: var(--white);
+}
+
+.titleInput{
+  background-color: transparent;
+  color:var(--white)
 }

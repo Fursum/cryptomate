@@ -37,6 +37,24 @@ a {
   text-decoration: none;
 }
 
+button, input{
+  border: 0;
+  border-radius: var(--borderRadius);
+
+  color: var(--black);
+  background-color: var(--main);
+
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+  
+  margin: 1em;
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
+
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
 }

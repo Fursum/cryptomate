@@ -9,12 +9,13 @@
   padding: 0.25em;
   margin-bottom: 1em;
 
+  background-color: var(--darkGray);
   box-shadow: 0 0 0.25em 0.25em rgba(0, 0, 0, 0.15);
 
   user-select: none;
 }
 
-.closeActionButton {
+.closeActionButton, .removeLineButton {
   opacity: 0;
 
   display: flex;
@@ -54,6 +55,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 0.4em;
+  padding-inline: 1em;
 
   position: relative;
 }
@@ -110,6 +112,7 @@
   margin-block: 0.5em;
   margin-inline: 0.5em;
   padding-block: 1em;
+  padding-inline: 0.25em;
 }
 
 .showBorder {
@@ -145,6 +148,9 @@
   position: absolute;
   left: 1em;
 
+  font-size: small;
+  padding: 0;
+
   z-index: 10;
 }
 
@@ -153,21 +159,19 @@
 .groupTypeButton:hover,
 .actionGroupTypeButton:hover {
   text-decoration: underline;
-  cursor: pointer;
 }
 
 .addLineButton {
-  bottom: 0em;
+  bottom: -1em;
   left: 1.5em;
 }
 
 .addGroupButton {
-  bottom: 3.5em;
+  bottom: 3em;
 }
 
-.groupTypeButton,
-.actionGroupTypeButton {
-  top: -0.5em;
+.groupTypeButton {
+  top: -1em;
 }
 
 .actionGroupTypeButton {
@@ -181,6 +185,8 @@
   background-color: var(--red);
   color: var(--white);
 
+  font-size: 0.75em;
+
   border: 0;
   border-radius: 1em;
   cursor: pointer;
@@ -188,18 +194,23 @@
   z-index: 10;
 }
 
-.comparisonLine:hover .removeLineButton, .comparisonGroup:hover .closeGroupButton{
+.comparisonLine:hover .removeLineButton,
+.comparisonGroup:hover .closeGroupButton {
   opacity: 1;
 }
 
 .removeLineButton {
-  left: 0.75em;
+  left: -1em;
   top: 0.5em;
+
+  font-size: 1em;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closeGroupButton {
-
-  top: 0;
+  top: -0.5em;
   right: 1.5em;
-
 }

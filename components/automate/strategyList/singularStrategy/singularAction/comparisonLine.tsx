@@ -32,7 +32,7 @@ const ComparisonLine: FunctionComponent<Props> = ({ data, setData, removeLine, i
 
   return (
     <div className={styles.comparisonLine}>
-      <button className={styles.removeLineButton} onClick={() => removeLine(data.id)}>X</button>
+      <button className={styles.removeLineButton} onClick={() => removeLine(data.id)}><span>-</span></button>
 
       <DropdownSelect
         state={dataType}

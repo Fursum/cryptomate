@@ -80,7 +80,7 @@ const ComparisonGroup: FunctionComponent<Props> = ({ data, setData, closeGroup, 
 
   return (
     <div className={styles.comparisonGroup}>
-      <button className={styles.closeGroupButton} onClick={() => closeGroup(data.id)}>X</button>
+      <button className={styles.closeGroupButton} onClick={() => closeGroup(data.id)}>Remove group</button>
       {DisplayLines}
       <button className={styles.addLineButton} onClick={addLine}>
         Add Condition

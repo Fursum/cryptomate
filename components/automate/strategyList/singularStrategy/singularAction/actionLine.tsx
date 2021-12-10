@@ -50,7 +50,7 @@ const ActionLine: FunctionComponent<Props> = ({ data, setData, isClosing }) => {
           maxLength={12}
           type="number"
           placeholder="0"
-          onChange={(event) => setActionValue(event.target.value)}
+          onChange={(e) => setActionValue(e.target.value)}
           required
         />
       </div>

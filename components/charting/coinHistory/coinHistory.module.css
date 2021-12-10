@@ -27,6 +27,9 @@
   border: 0;
   color: var(--white);
 
+  font-size: small;
+  margin: 0em;
+
   cursor: pointer;
 }
 

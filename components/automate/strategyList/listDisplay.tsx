@@ -15,10 +15,8 @@ const ListDisplay: FunctionComponent<Props> = ({
   strategyList,
   updateStrategy,
   removeStrategy,
-  createStrategy
+  createStrategy,
 }) => {
-  if (!strategyList) return <div className="error">You have no active strategies.</div>;
-
   const StrategyList = strategyList?.map((strategy: Strategy_T) => {
     return (
       <div key={strategy.id} className={styles.strategyContainer}>
@@ -36,6 +34,7 @@ const ListDisplay: FunctionComponent<Props> = ({
   return (
     <div className={styles.strategyList}>
       {StrategyList}
+      {!StrategyList && <div className="error">You have no active strategies.</div>}
       <button className={styles.newStrategy} onClick={createStrategy}>
         Create Strategy
       </button>

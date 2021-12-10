@@ -19,6 +19,8 @@ const Dashboard: NextPage = () => {
         <meta name="description" content="Dashboard of your Cryptomate" />
         <link rel="icon" href="/svg/raw/gear.svg" />
       </Head>
+
+      
     </>
   );
 };

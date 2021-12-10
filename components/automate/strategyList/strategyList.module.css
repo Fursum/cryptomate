@@ -1,8 +1,8 @@
 .strategyContainer {
   display: flex;
   flex-direction: column;
-  flex: 1;
   min-width: 20em;
+  width: 100%;
 
   background-color: var(--darkGray);
   color: var(--white);

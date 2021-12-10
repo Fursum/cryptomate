@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import { Order_T, Strategy_T } from "@components/automate/AutomateTypes";
+import { Strategy_T } from "@components/automate/AutomateTypes";
 
 import styles from "./singularStrategy.module.css";
 import ConfigWindow from "./configWindow";
@@ -20,7 +20,7 @@ const SingularStrategy: FunctionComponent<Props> = ({
   const [display, setDisplay] = useState(false);
 
   return (
-    <>
+    <div>
       <button className={styles.configureStrategy} onClick={() => setDisplay(true)}>
         Configure Strategy
       </button>
@@ -35,7 +35,7 @@ const SingularStrategy: FunctionComponent<Props> = ({
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

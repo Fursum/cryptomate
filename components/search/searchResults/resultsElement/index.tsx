@@ -15,7 +15,7 @@ const ResultsElement: FunctionComponent<Props> = ({ data }) => {
   const quoteName = CoinData.getCoin(data.quoteAsset, "name");
 
   return (
-    <Link href={`/search/${data.baseAsset}/${data.quoteAsset}`} passHref={true}>
+    <Link href={`/search/${data.baseAsset}/${data.quoteAsset}`} passHref={true} replace={true}>
       <a className={styles.outerButton}>
         <div className={styles.leftSide}>
           <p className={styles.symbol}>{data.baseAsset}</p>

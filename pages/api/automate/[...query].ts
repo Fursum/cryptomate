@@ -12,8 +12,8 @@ const exampleData: Strategy_T[] = Array(20)
 
     const randomData: Strategy_T = {
       id: randomID(),
-      creationDate: new Date(),
-      lastUpdate: new Date(),
+      creationDate: new Date(Date.now()),
+      lastUpdate: new Date(Date.now()),
       orderList: [],
       title: "Test title: " + randomValue,
       totalBuyCap: 0
