@@ -52,7 +52,7 @@
 
 @media (max-width:20em) {
   .searchInput{
-    margin-left: 0.5em;
+    margin-left: 0.25em;
     margin-right: auto;
   }
 }

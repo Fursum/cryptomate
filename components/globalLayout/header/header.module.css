@@ -23,12 +23,16 @@
   user-select: none;
   cursor: pointer;
 }
+
+.logo > span{
+  margin-left: 0.2em;
+}
+
 .header .logo > svg {
   min-width: 1em;
   min-height: 1em;
   width: 1.2em;
   height: 1.2em;
-  margin-right: 0.2em;
   animation: Spin 5s infinite linear;
 }
 .header .profile {
@@ -36,7 +40,6 @@
   height: 1.5em;
   border-radius: 100%;
   overflow: hidden;
-  margin-right: 0.4em;
   padding: 0.1em;
   background-color: var(--white);
   outline: 0.1em solid var(--black);
