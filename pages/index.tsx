@@ -22,6 +22,7 @@ const Home: NextPage = () => {
           name="description"
           content="Automate your trading with Cryptomate"
         />
+        <meta name="theme-color" content="#fcd436" />
         <link rel="icon" href="/svg/raw/gear.svg" />
       </Head>
       <HomeLayout />

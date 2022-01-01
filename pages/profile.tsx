@@ -19,6 +19,7 @@ const Dashboard: NextPage = () => {
       <Head>
         <title>Cryptomate - Profile</title>
         <meta name="description" content="Change your Cryptomate profile" />
+        <meta name="theme-color" content="#fcd436" />
         <link rel="icon" href="/svg/raw/gear.svg" />
       </Head>
       {session && <SignOut />}
