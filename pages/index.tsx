@@ -4,6 +4,8 @@ import Head from "next/head";
 import { useSession } from "node_modules/next-auth/client";
 import { useEffect } from "react";
 
+import HomeLayout from "@components/pageLayouts/home";
+
 const Home: NextPage = () => {
   const [session] = useSession();
 
@@ -22,6 +24,7 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/svg/raw/gear.svg" />
       </Head>
+      <HomeLayout />
     </>
   );
 };

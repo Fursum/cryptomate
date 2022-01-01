@@ -1,0 +1,21 @@
+.content{
+  display: flex;
+  flex-direction: column;
+
+  max-width: 75em;
+  margin-inline: auto;
+
+  color: var(--white);
+  text-align: center;
+
+  font-weight: bolder;
+}
+
+.contentBackground{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--darkGray);
+  margin-inline: max(0.5em, 3vw);
+  padding: 2em;
+}

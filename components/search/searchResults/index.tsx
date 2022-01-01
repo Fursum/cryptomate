@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useRef } from "react";
 import ResultsElement from "./resultsElement";
 import SearchResults_T from "./resultsType";
 
@@ -9,13 +9,12 @@ interface Props {
 }
 
 const SearchResults: FunctionComponent<Props> = ({ searchResults }) => {
-  if (searchResults.length == 0) return <div />;
 
   return (
     <div className={styles.centerContainer}>
       <div className={styles.resultsContainer}>
-        {searchResults.map((element) => (
-          <ResultsElement data={element} key={element.id} />
+        {searchResults.map((element, index) => (
+          <ResultsElement data={element} key={element.id}/>
         ))}
       </div>
     </div>

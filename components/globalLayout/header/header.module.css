@@ -14,6 +14,7 @@
   font-weight: bolder;
   color: var(--main);
   padding-block: 0.5em;
+  padding-inline: 0.5em;
   align-items: center;
 }
 .header .logo {
@@ -27,7 +28,6 @@
   min-height: 1em;
   width: 1.2em;
   height: 1.2em;
-  margin-left: 0.5em;
   margin-right: 0.2em;
   animation: Spin 5s infinite linear;
 }

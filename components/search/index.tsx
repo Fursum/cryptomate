@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { FunctionComponent, useState, useEffect } from "react";
+import { FunctionComponent, useState, useEffect, useRef } from "react";
 import styles from "./searchBar.module.css";
 import SearchResults from "./searchResults";
 import SearchResults_T from "./searchResults/resultsType";
@@ -20,8 +20,8 @@ const SearchBar: FunctionComponent = () => {
   //Submit first result
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    if(searchData){
-      let searchRoute = `/search/${searchData[0].baseAsset}/${searchData[0].quoteAsset}`
+    if (searchData.length > 0) {
+      let searchRoute = `/search/${searchData[0].baseAsset}/${searchData[0].quoteAsset}`;
       router.push(searchRoute);
     }
   };
@@ -54,7 +54,7 @@ const SearchBar: FunctionComponent = () => {
           required
         />
       </form>
-      {searchData ? <SearchResults searchResults={searchData} /> : ""}
+      {searchData?.length ? <SearchResults searchResults={searchData} /> : ""}
     </div>
   );
 };

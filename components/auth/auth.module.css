@@ -8,9 +8,6 @@
   border-radius: var(--borderRadius);
 }
 
-.signIn {
-  margin-right: 0.5em;
-}
 .signIn > a {
   background-color: var(--main);
   color: var(--black);

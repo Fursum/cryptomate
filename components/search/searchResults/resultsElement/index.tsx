@@ -1,8 +1,7 @@
-import { useRouter } from "next/router";
-import Link from "next/link"
+import Link from "next/link";
 import { FunctionComponent } from "react";
 import SearchResults_T from "../resultsType";
-import CoinData, { CoinData_T } from "@libs/coindata";
+import CoinData from "@libs/coindata";
 import styles from "./resultsElement.module.css";
 
 interface Props {
@@ -10,7 +9,6 @@ interface Props {
 }
 
 const ResultsElement: FunctionComponent<Props> = ({ data }) => {
-  const router = useRouter();
   const baseName = CoinData.getCoin(data.baseAsset, "name");
   const quoteName = CoinData.getCoin(data.quoteAsset, "name");
 

@@ -1,0 +1,46 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageWrap{
+  background-color: var(--darkGray);
+  border-radius: var(--borderRadius);
+  overflow: hidden;
+  box-shadow: 0 0.1em 0.5em 0.1em rgba(0, 0, 0, 0.15);
+
+  padding: 1.5em;
+  margin-block: 1em;
+
+}
+
+.image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 10em;
+  height: 5em;
+}
+
+.dollar{
+  color: var(--main);
+
+  font-weight: 800;
+  font-size: xx-large;
+}
+
+.title{
+  font-weight: 600;
+  font-size: larger;
+}
