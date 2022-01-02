@@ -1,0 +1,50 @@
+.authContainer{
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--darkGray);
+
+  max-width: fit-content;
+  margin-inline: auto;
+  padding-inline: 4em;
+  padding-block: 4em;
+
+}
+
+.authContainer > span {
+  color: var(--white);
+  text-align: center;
+}
+
+.authContainer > span::after{
+
+  content: "";
+  background-color: var(--darkGray);
+
+  width: calc(100% - 2em);
+  height: 0.25em;
+
+  position: absolute;
+  left:0;
+  margin-left: 1em;
+  margin-top: 1.7em;
+
+  border-radius: var(--borderRadius);
+  
+}
+
+.logo{
+  margin-bottom: 2em;
+}
+
+.logo > svg {
+  min-width: 1em;
+  min-height: 1em;
+  width: 5em;
+  height: 5em;
+}
+
