@@ -3,12 +3,14 @@
   width: 100%;
 }
 .mainWrapper > main {
+
   margin: 0.25em;
   min-width: 0;
   width: 100%;
   height: calc(100vh - 6em);
   min-height: calc(100vh - 6em);
   bottom: 0;
+  
 }
 
 /*# sourceMappingURL=layout.module.css.map */

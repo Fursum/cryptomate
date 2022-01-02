@@ -1,0 +1,21 @@
+.contentWrapper{
+  margin: 2em;
+}
+
+.profileContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  max-width: 75em;
+  margin-inline: auto;
+  padding: 2em;
+
+  background-color: var(--darkGray);
+
+}
+
+.profileContent > h2 {
+  color: var(--white);
+  margin-top: 0;
+}

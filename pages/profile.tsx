@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/client";
 
-import SignOut from "@components/auth/signout";
+import ProfileLayout from "@components/pageLayouts/profile";
 
 const Dashboard: NextPage = () => {
   const [session] = useSession();
@@ -22,7 +22,7 @@ const Dashboard: NextPage = () => {
         <meta name="theme-color" content="#fcd436" />
         <link rel="icon" href="/svg/raw/gear.svg" />
       </Head>
-      {session && <SignOut />}
+      {session ? <ProfileLayout /> : <div className="error">You are not signed in.</div>}
     </>
   );
 };
